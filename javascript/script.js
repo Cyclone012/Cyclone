@@ -1,4 +1,41 @@
+var typewriter = document.querySelector(".typewriter");
+var typewriter = document.querySelector(".typewriter");
+var text = typewriter.querySelector('.typetext').textContent;
+var i = 0;
+var deleteInterval;
 
+function type() {
+    if (i < text.length) {
+        typewriter.querySelector('.typetext').textContent = text.substring(0, i + 1);
+        i++;
+        setTimeout(type, 500);
+    } else {
+        typewriter.querySelector('.typetext').textContent = '';
+        i = 0;
+        deleteInterval = setInterval(deleteText, 300);
+    }
+}
+
+function deleteText() {
+    if (i > 0) {
+        typewriter.querySelector('.typetext').textContent = text.substring(0, i);
+        i--;
+    } else {
+        clearInterval(deleteInterval);
+        setTimeout(type, 300);
+    }
+}
+type();
+
+const spinnerwrapper = document.querySelector(".spinner-wrapper");
+
+window.addEventListener('load', () =>{
+    spinnerwrapper.style.opacity = '0';
+
+    setTimeout(() => {
+        spinnerwrapper.remove();
+    },500);
+});
 //JS From Bard AI by goolge == bard.google.com
 
 //Navbar Button & Show and Hide Search on click
