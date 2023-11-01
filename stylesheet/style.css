@@ -1,5 +1,5 @@
 .spinner-wrapper {
-    background-color: black;
+    background-color: rgb(35, 35, 35);
     position: fixed;
     top: 0;
     left: 0;
@@ -10,7 +10,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transition: all 0.2s;
+    transition: all 1s;
 }
 
 .spinner-wrapper .typewriter {
@@ -21,12 +21,43 @@
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
     font-weight: bold;
-    color: #fff;
+    color: #04cf92;
 }
 
-.loadimg {
-    border-radius: 50%;
-    width: 5rem;
+.loading {
+    padding: 1rem;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading .line-box {
+    width: 40%;
+    height: 15px;
+    border: 2px solid #fff;
+    border-radius: 20px;
+}
+
+.loading .line-box .line {
+    height: 11.3px;
+    border-radius: 20px;
+    background-color: #04cf92;
+    animation: loading 2s forwards cubic-bezier(0,0,0,0) infinite;
+}
+
+@keyframes loading {
+    0%{
+        width: 0%;
+    }
+    70%{
+        width: 100%;
+    }
+    100%{
+        width: 100%;
+    }
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,300;1,400;1,500;1,600&display=swap');
